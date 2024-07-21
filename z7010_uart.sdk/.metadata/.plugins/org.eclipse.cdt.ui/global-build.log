@@ -1,19 +1,15 @@
-17:24:41 **** Incremental Build of configuration Debug for project z7010_uart_irq ****
+10:14:35 **** Incremental Build of configuration Debug for project z7010_uart_irq ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
 make: Nothing to be done for `main-build'.
-17:24:55 **** Incremental Build of configuration Debug for project z7010_uart_irq ****
+10:17:13 **** Auto Build of configuration Debug for project z7010_uart_irq ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
 Building file: ../src/main.c
 Invoking: ARM v7 gcc compiler
-arm-none-eabi-gcc -Wall -O0 -g3 -I../../z7010_uart_irq_bsp/ps7_cortexa9_0/include -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-../src/main.c: In function 'main':
-../src/main.c:21:10: warning: variable 'Data' set but not used [-Wunused-but-set-variable]
-  uint8_t Data[50];
-          ^~~~
+arm-none-eabi-gcc -Wall -O0 -g3 -I../../z7010_uart_irq_bsp/ps7_cortexa9_0/include -I"D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART" -I"D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU" -I"D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
 Finished building: ../src/main.c
  
 Building target: z7010_uart_irq.elf
@@ -24,36 +20,6 @@ Finished building target: z7010_uart_irq.elf
 Invoking: ARM v7 Print Size
 arm-none-eabi-size z7010_uart_irq.elf  |tee "z7010_uart_irq.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  30184	   2748	  22712	  55644	   d95c	z7010_uart_irq.elf
+  30336	   2748	  22744	  55828	   da14	z7010_uart_irq.elf
 Finished building: z7010_uart_irq.elf.size
  
-17:25:09 **** Incremental Build of configuration Debug for project z7010_uart_irq ****
-make pre-build main-build 
-a9-linaro-pre-build-step
- 
-make: Nothing to be done for `main-build'.
-17:31:57 **** Auto Build of configuration Debug for project z7010_uart_irq ****
-make pre-build main-build 
-a9-linaro-pre-build-step
- 
-Building file: ../src/main.c
-Invoking: ARM v7 gcc compiler
-arm-none-eabi-gcc -Wall -O0 -g3 -I../../z7010_uart_irq_bsp/ps7_cortexa9_0/include -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
- 
-Building target: z7010_uart_irq.elf
-Invoking: ARM v7 gcc linker
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../z7010_uart_irq_bsp/ps7_cortexa9_0/lib -o "z7010_uart_irq.elf"  ./src/COMMON.o ./src/ISR.o ./src/main.o  ./ACZ7015_Lib/SCU/SCU_GIC.o ./ACZ7015_Lib/SCU/SCU_TIMER.o  ./ACZ7015_Lib/PS_UART/PS_UART.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-Finished building target: z7010_uart_irq.elf
- 
-Invoking: ARM v7 Print Size
-arm-none-eabi-size z7010_uart_irq.elf  |tee "z7010_uart_irq.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  30316	   2748	  22712	  55776	   d9e0	z7010_uart_irq.elf
-Finished building: z7010_uart_irq.elf.size
- 
-17:32:19 **** Incremental Build of configuration Debug for project z7010_uart_irq ****
-make pre-build main-build 
-a9-linaro-pre-build-step
- 
-make: Nothing to be done for `main-build'.

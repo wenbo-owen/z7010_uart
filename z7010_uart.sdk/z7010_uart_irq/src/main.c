@@ -14,7 +14,7 @@
 **/
 #include "COMMON.h"
 
-uint8_t Receive_Buffer[10];
+uint8_t Receive_Buffer[50];
 
 int main(void)
 {
@@ -38,18 +38,12 @@ int main(void)
 	while(!Send_All_Flag);
 	Send_All_Flag = 0;
 
-//	while(1)
-//	{
-//
-//		PS_Uart_SendString(&UartPs1,"UART send done!!!\n");
-//		sleep(1);
-//	}
-
+	PS_Uart_SendString(&UartPs1,"UART send done!!!\n");  //PS_uart发送字符串 PS_UART.C
 
 
 	while(1) {
 		//UART接收10个字符 ,第3个参数是 接收字节数字
-		PS_Uart_RecvData(&UartPs1, Receive_Buffer, 10);  // 就是连续接收到10个字节
+		PS_Uart_RecvData(&UartPs1, Receive_Buffer, 50);  // 就是连续接收到10个字节
 
 		//等待10字节接收完成或接收超时
 		while(!(Recv_All_Flag || TimeOut_Flag));
@@ -76,7 +70,7 @@ int main(void)
 			}
 		}
 
-		//接收超时则重新接收
+		//接收超时则重新接收,当接受到的一组串口数据数量没有达到len时候，会触发超时，也可以正常接收数据
 		if(TimeOut_Flag) {
 			//清除接收超时标志
 			TimeOut_Flag = 0;

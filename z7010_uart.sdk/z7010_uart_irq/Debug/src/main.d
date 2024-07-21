@@ -19,13 +19,13 @@ src/main.o src/main.o: ../src/main.c ../src/COMMON.h \
  ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xscutimer.h \
  ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xscutimer_hw.h \
  ../src/ISR.h \
- D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART/PS_UART.h \
- D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src/COMMON.h \
+ D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART/PS_UART.h \
+ D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src/COMMON.h \
  ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xuartps.h \
  ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xuartps_hw.h \
  ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xplatform_info.h \
- D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_GIC.h \
- D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_TIMER.h
+ D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_GIC.h \
+ D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_TIMER.h
 
 ../src/COMMON.h:
 
@@ -69,9 +69,9 @@ src/main.o src/main.o: ../src/main.c ../src/COMMON.h \
 
 ../src/ISR.h:
 
-D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART/PS_UART.h:
+D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\PS_UART/PS_UART.h:
 
-D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src/COMMON.h:
+D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src/COMMON.h:
 
 ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xuartps.h:
 
@@ -79,6 +79,6 @@ D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\src/COMMON.h:
 
 ../../z7010_uart_irq_bsp/ps7_cortexa9_0/include/xplatform_info.h:
 
-D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_GIC.h:
+D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_GIC.h:
 
-D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_TIMER.h:
+D:\FPGA\ZYNQ_MINI\z7010_uart\z7010_uart.sdk\z7010_uart_irq\ACZ7015_Lib\SCU/SCU_TIMER.h:

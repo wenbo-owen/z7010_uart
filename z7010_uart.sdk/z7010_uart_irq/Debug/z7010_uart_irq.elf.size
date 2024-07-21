@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  30316	   2748	  22712	  55776	   d9e0	z7010_uart_irq.elf
+  30336	   2748	  22744	  55828	   da14	z7010_uart_irq.elf

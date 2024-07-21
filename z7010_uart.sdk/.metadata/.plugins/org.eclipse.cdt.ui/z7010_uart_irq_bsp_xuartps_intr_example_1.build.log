@@ -1,4 +1,4 @@
-17:19:35 **** Build of configuration Debug for project z7010_uart_irq_bsp_xuartps_intr_example_1 ****
+17:46:05 **** Auto Build of configuration Debug for project z7010_uart_irq_bsp_xuartps_intr_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -19,5 +19,5 @@ arm-none-eabi-size z7010_uart_irq_bsp_xuartps_intr_example_1.elf  |tee "z7010_ua
 Finished building: z7010_uart_irq_bsp_xuartps_intr_example_1.elf.size
  
 
-17:19:36 Build Finished (took 872ms)
+17:46:06 Build Finished (took 1s.753ms)
 
