@@ -1,0 +1,59 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jul 25 18:09:56 2024
+# Process ID: 20164
+# Current directory: D:/FPGA/Z7010_MINI/z7010_uart
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12188 D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.xpr
+# Log file: D:/FPGA/Z7010_MINI/z7010_uart/vivado.log
+# Journal file: D:/FPGA/Z7010_MINI/z7010_uart\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.xpr
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+open_bd_design {D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.srcs/sources_1/bd/system/system.bd}
+file mkdir D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk
+write_hwdef -force  -file D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_timer:2.0 axi_timer_0
+endgroup
+set_property location {2 285 -324} [get_bd_cells axi_timer_0]
+set_property location {1 391 -364} [get_bd_cells axi_timer_0]
+startgroup
+set_property -dict [list CONFIG.PCW_USE_M_AXI_GP0 {1}] [get_bd_cells processing_system7_0]
+endgroup
+set_property location {633 -158} [get_bd_intf_ports DDR]
+set_property location {647 -132} [get_bd_intf_ports FIXED_IO]
+startgroup
+set_property -dict [list CONFIG.PCW_EN_CLK0_PORT {1}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.PCW_EN_RST0_PORT {1}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.PCW_USE_FABRIC_INTERRUPT {1} CONFIG.PCW_IRQ_F2P_INTR {1}] [get_bd_cells processing_system7_0]
+endgroup
+regenerate_bd_layout
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" intc_ip "New AXI Interconnect" Clk_xbar "Auto" Clk_master "Auto" Clk_slave "Auto" }  [get_bd_intf_pins axi_timer_0/S_AXI]
+regenerate_bd_layout
+connect_bd_net [get_bd_pins axi_timer_0/interrupt] [get_bd_pins processing_system7_0/IRQ_F2P]
+regenerate_bd_layout
+validate_bd_design
+generate_target all [get_files D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.srcs/sources_1/bd/system/system.bd]
+synth_design -rtl -name rtl_1
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+make_wrapper -files [get_files D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.srcs/sources_1/bd/system/system.bd] -top
+file mkdir D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk
+file copy -force D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.runs/impl_1/system_wrapper.sysdef D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
+launch_sdk -workspace D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.sdk/system_wrapper.hdf

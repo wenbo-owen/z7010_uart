@@ -67,19 +67,21 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param synth.incrementalSynthesisCache D:/FPGA/z7010_uart/.Xil/Vivado-16948-DESKTOP-P3735U4/incrSyn
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.cache/wt [current_project]
-  set_property parent.project_path D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.xpr [current_project]
-  set_property ip_output_repo D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/FPGA/z7010_uart/z7010_uart.cache/wt [current_project]
+  set_property parent.project_path D:/FPGA/z7010_uart/z7010_uart.xpr [current_project]
+  set_property ip_output_repo D:/FPGA/z7010_uart/z7010_uart.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.runs/synth_1/system_wrapper.dcp
+  add_files -quiet D:/FPGA/z7010_uart/z7010_uart.runs/synth_1/system_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files D:/FPGA/Z7010_MINI/z7010_uart/z7010_uart.srcs/sources_1/bd/system/system.bd
+  add_files D:/FPGA/z7010_uart/z7010_uart.srcs/sources_1/bd/system/system.bd
   set_param project.isImplRun false
+  read_xdc D:/FPGA/z7010_uart/z7010_uart.srcs/constrs_1/new/z7010_demo.xdc
   set_param project.isImplRun true
   link_design -top system_wrapper -part xc7z010clg400-1
   set_param project.isImplRun false

@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Thu Jul 25 18:50:22 2024
-| Host         : DESKTOP-121H73O running 64-bit major release  (build 9200)
+| Date         : Fri Jul 26 16:10:16 2024
+| Host         : DESKTOP-P3735U4 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
 | Device       : 7z010clg400-1
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  838 |     0 |     17600 |  4.76 |
-|   LUT as Logic             |  772 |     0 |     17600 |  4.39 |
+| Slice LUTs*                |  970 |     0 |     17600 |  5.51 |
+|   LUT as Logic             |  904 |     0 |     17600 |  5.14 |
 |   LUT as Memory            |   66 |     0 |      6000 |  1.10 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   66 |     0 |           |       |
-| Slice Registers            |  881 |     0 |     35200 |  2.50 |
-|   Register as Flip Flop    |  881 |     0 |     35200 |  2.50 |
+| Slice Registers            | 1057 |     0 |     35200 |  3.00 |
+|   Register as Flip Flop    | 1057 |     0 |     35200 |  3.00 |
 |   Register as Latch        |    0 |     0 |     35200 |  0.00 |
 | F7 Muxes                   |    2 |     0 |      8800 |  0.02 |
 | F8 Muxes                   |    0 |     0 |      4400 |  0.00 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 53    |          Yes |         Set |            - |
-| 828   |          Yes |       Reset |            - |
+| 55    |          Yes |         Set |            - |
+| 1002  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -92,7 +92,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+--------+
 |          Site Type          | Used | Fixed | Available |  Util% |
 +-----------------------------+------+-------+-----------+--------+
-| Bonded IOB                  |    0 |     0 |       100 |   0.00 |
+| Bonded IOB                  |    5 |     0 |       100 |   5.00 |
 | Bonded IPADs                |    0 |     0 |         2 |   0.00 |
 | Bonded IOPADs               |  130 |     0 |       130 | 100.00 |
 | PHY_CONTROL                 |    0 |     0 |         2 |   0.00 |
@@ -148,18 +148,20 @@ Table of Contents
 +----------+------+----------------------+
 | Ref Name | Used |  Functional Category |
 +----------+------+----------------------+
-| FDRE     |  828 |         Flop & Latch |
-| LUT3     |  346 |                  LUT |
-| LUT6     |  167 |                  LUT |
-| LUT4     |  130 |                  LUT |
+| FDRE     | 1002 |         Flop & Latch |
+| LUT3     |  359 |                  LUT |
+| LUT6     |  235 |                  LUT |
+| LUT4     |  213 |                  LUT |
+| LUT2     |  131 |                  LUT |
 | BIBUF    |  130 |                   IO |
-| LUT1     |  129 |                  LUT |
-| LUT2     |  110 |                  LUT |
-| LUT5     |   89 |                  LUT |
+| LUT5     |  116 |                  LUT |
+| LUT1     |   72 |                  LUT |
 | CARRY4   |   66 |           CarryLogic |
-| FDSE     |   53 |         Flop & Latch |
+| FDSE     |   55 |         Flop & Latch |
 | SRLC32E  |   47 |   Distributed Memory |
 | SRL16E   |   19 |   Distributed Memory |
+| OBUFT    |    5 |                   IO |
+| IBUF     |    5 |                   IO |
 | MUXF7    |    2 |                MuxFx |
 | PS7      |    1 | Specialized Resource |
 +----------+------+----------------------+

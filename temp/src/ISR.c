@@ -20,6 +20,13 @@ volatile int Send_All_Flag = 0;	//全部发送标志
 volatile int Recv_All_Flag = 0;	//全部接收标志
 volatile int TimeOut_Flag = 0;	//超时标志
 
+volatile uint16_t Cnt0_Flag = 0;
+volatile uint16_t Cnt1_Flag = 0;
+volatile uint16_t Cnt0 = 0;
+volatile uint16_t Cnt1 = 0;
+
+
+
 /**
   *****************************************************
   * @brief	私有定时器中断处理程序
@@ -60,3 +67,31 @@ void PS_UART1_IRQ_Handler(void *CallBackRef, uint32_t Event, unsigned int EventD
 	}
 
 }
+
+
+
+
+void AXI_Timer0_IRQ_Handler(void *CallBackRef, u8 TmrCtrNum)
+{
+	//Timer0 的计数器 0 中断
+	if (TmrCtrNum == TIMER_CNTR_0)
+	{
+		/* ↓↓↓用户处理↓↓↓ */
+		Cnt0_Flag = 1;
+		Cnt0++;
+		/* ↑↑↑结束处理↑↑↑ */
+	}
+	//Timer0 的计数器 1 中断
+	if(TmrCtrNum == TIMER_CNTR_1)
+	{
+		/* ↓↓↓用户处理↓↓↓ */
+		Cnt1_Flag = 1;
+		Cnt1++;
+		/* ↑↑↑结束处理↑↑↑ */
+	}
+}
+
+
+
+
+

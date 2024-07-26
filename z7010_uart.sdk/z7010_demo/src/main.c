@@ -1,15 +1,17 @@
 /**
   *****************************************************************************
-  * 					使用PS端的串口中断实现数据发送和接收处理
-  * 				帧头'S' 帧尾'E' 中间有效数据长度为8字节，总长10字节
+  * 这是一个Z7010的一个综合示例程序
+  * 使用PS端的串口中断实现数据发送和接收处理
+  * AXI_GPIO: PL侧的逻辑资源构建GPIO 软核，通过 AXI 接口连接到 PS 中
+  * AXI_GPIO: PL侧的逻辑资源构建GPIO 软核
+  * 帧头'S' 帧尾'E' 中间有效数据长度为8字节，总长10字节
   *****************************************************************************
   *
   * @File   : main.c
-  * @By     : Sun
+  * @By     : 温博
   * @Version: V1.0
-  * @Date   : 2022 / 06 / 07
-  * @Shop	: https://xiaomeige.taobao.com/
-  *
+  * @Date   : 2024 / 06 / 07
+  * @Note:   带FPGA程序部分程序的，需要先把bitstream写入FPGA中
   *****************************************************************************
 **/
 #include "COMMON.h"
@@ -21,19 +23,46 @@ int main(void)
 	uint8_t Data[50];
 	uint8_t i;
 	uint32_t Tick_Cnt = 0;
+	uint8_t led1_flag=0;
+	uint8_t led2_flag=0;
+	uint8_t State;
 
-	//开启通用中断控制器
+	//****** 开启通用中断控制器 ******
 	ScuGic_Init();
 
-	//初始化私有定时器 ，参数是Time_us
+	//****** PS_GPIO初始化 ******
+	PS_GPIO_Init();
+	PS_GPIO_SetMode(PL_LED0,OUTPUT,1);
+	PS_GPIO_SetMode(PL_LED1,OUTPUT,1);
+	PS_GPIO_SetMode(PL_LED2,OUTPUT,1);
+	PS_GPIO_SetMode(PL_LED3,OUTPUT,1);
+
+
+	//****** AXI_GPIO初始化 ******
+	AXI_GPIO_Init(&AXI_GPIO0, GPIO_0_ID);
+	//设置通道 1 为输入
+	AXI_GPIO_Set_Channel(&AXI_GPIO0, XGPIO_IR_CH1_MASK, 0x01, 0);
+	//设置通道 2 为输出
+	AXI_GPIO_Set_Channel(&AXI_GPIO0, XGPIO_IR_CH2_MASK, 0x00, 0);
+
+
+	//****** 初始化私有定时器 ，参数是Time_us
 	ScuTimer_Int_Init(1000000);
 
-	//AXI_Timer_Init(&AXI_Timer0,XPAR_TMRCTR_0_DEVICE_ID);
+	//****** AXI_Timer 定时器 ******
+	AXI_Timer_Init(&AXI_Timer0,XPAR_TMRCTR_0_DEVICE_ID);
 
 	//定时器中断初始化
-	//AXI_Timer_Int_Init(&AXI_Timer0,TMRCTR_INTERRUPT_ID,AXI_Timer0_IRQ_Handler);
+	AXI_Timer_Int_Init(&AXI_Timer0,TMRCTR_INTERRUPT_ID,AXI_Timer0_IRQ_Handler);
 
-	//UART初始化
+	//定时器计数器 0 配置为中断模式，自动重装载且向下计数，定时 1s
+	AXI_Timer_SetOption(&AXI_Timer0,TIMER_CNTR_0, XTC_INT_MODE_OPTION
+	| XTC_AUTO_RELOAD_OPTION | XTC_DOWN_COUNT_OPTION,RELOAD_VAL_S(1));
+	//定时器计数器 1 配置为中断模式，自动重装载且向下计数，定时 0.5s
+	AXI_Timer_SetOption(&AXI_Timer0,TIMER_CNTR_1, XTC_INT_MODE_OPTION
+	| XTC_AUTO_RELOAD_OPTION | XTC_DOWN_COUNT_OPTION,RELOAD_VAL_S(0.5));
+
+	//****** UART1初始化 ******
 	PS_UART_Init(&UartPs1,XPAR_PS7_UART_1_DEVICE_ID, XUARTPS_OPER_MODE_NORMAL, 115200);
 
 	//UART中断初始化，开启超时功能
@@ -96,6 +125,10 @@ int main(void)
 			Tick_Cnt = 0;
 			else
 			Tick_Cnt++;
+			if(Tick_Cnt%2==0)
+				PS_GPIO_SetPort(PL_LED0,0);
+			else
+				PS_GPIO_SetPort(PL_LED0,1);
 		}
 
 
@@ -104,16 +137,24 @@ int main(void)
 		{
 			Cnt0_Flag = 0; //清除标志
 			printf("Timer0:%d\n",Cnt0);
+			PS_GPIO_SetPort(PL_LED1,led1_flag);
+			led1_flag ^= 1;
 		}
 		//判断计数器 1 的计数标志
 		if(Cnt1_Flag)
 		{
 			Cnt1_Flag = 0; //清除标志
 			printf("Timer1:%d\n",Cnt1);
+			PS_GPIO_SetPort(PL_LED2,led2_flag);
+			led2_flag ^= 1;
+
 		}
 
 
-
+		//读取通道 1 输入的值
+		State = XGpio_DiscreteRead(&AXI_GPIO0,XGPIO_IR_CH1_MASK);
+		//将通道 2 设置为输出，输出从通道 1 读取的值
+		AXI_GPIO_Set_Channel(&AXI_GPIO0, XGPIO_IR_CH2_MASK, 0, State);
 
 
 	}

@@ -1,35 +1,30 @@
-22:45:21 **** Incremental Build of configuration Debug for project z7010_demo ****
+17:18:45 **** Incremental Build of configuration Debug for project z7010_demo ****
 make pre-build main-build 
 a9-linaro-pre-build-step
- 
+' '
 make: Nothing to be done for `main-build'.
-22:45:24 **** Incremental Build of configuration Debug for project z7010_demo ****
+17:18:50 **** Incremental Build of configuration Debug for project z7010_demo ****
 make pre-build main-build 
 a9-linaro-pre-build-step
- 
-Building file: ../src/main.c
-Invoking: ARM v7 gcc compiler
-arm-none-eabi-gcc -Wall -O0 -g3 -I../../z7010_demo_bsp/ps7_cortexa9_0/include -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\PS_UART" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\SCU" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_demo\src" -I"D:\FPGA\Z7010_MINI\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\AXI_TIMER" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
- 
-Building target: z7010_demo.elf
-Invoking: ARM v7 gcc linker
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../z7010_demo_bsp/ps7_cortexa9_0/lib -o "z7010_demo.elf"  ./src/COMMON.o ./src/ISR.o ./src/main.o  ./ACZ7015_Lib/SCU/SCU_GIC.o ./ACZ7015_Lib/SCU/SCU_TIMER.o  ./ACZ7015_Lib/PS_UART/PS_UART.o  ./ACZ7015_Lib/AXI_TIMER/AXI_TIMER.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-Finished building target: z7010_demo.elf
- 
-Invoking: ARM v7 Print Size
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I../../z7010_demo_bsp/ps7_cortexa9_0/include -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\AXI_GPIO" -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\AXI_TIMER" -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\PS_GPIO" -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\PS_UART" -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\ACZ7015_Lib\SCU" -I"D:\FPGA\z7010_uart\z7010_uart.sdk\z7010_demo\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: z7010_demo.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../z7010_demo_bsp/ps7_cortexa9_0/lib -o "z7010_demo.elf"  ./src/COMMON.o ./src/ISR.o ./src/main.o  ./ACZ7015_Lib/SCU/SCU_GIC.o ./ACZ7015_Lib/SCU/SCU_TIMER.o  ./ACZ7015_Lib/PS_UART/PS_UART.o  ./ACZ7015_Lib/PS_GPIO/PS_GPIO.o  ./ACZ7015_Lib/AXI_TIMER/AXI_TIMER.o  ./ACZ7015_Lib/AXI_GPIO/AXI_GPIO.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: z7010_demo.elf'
+' '
+'Invoking: ARM v7 Print Size'
 arm-none-eabi-size z7010_demo.elf  |tee "z7010_demo.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  85624	   4200	  23552	 113376	  1bae0	z7010_demo.elf
-Finished building: z7010_demo.elf.size
- 
-22:46:56 **** Incremental Build of configuration Debug for project z7010_demo ****
+  96652	   4224	  23600	 124476	  1e63c	z7010_demo.elf
+'Finished building: z7010_demo.elf.size'
+' '
+17:19:07 **** Incremental Build of configuration Debug for project z7010_demo ****
 make pre-build main-build 
 a9-linaro-pre-build-step
- 
-make: Nothing to be done for `main-build'.
-22:47:26 **** Incremental Build of configuration Debug for project z7010_demo ****
-make pre-build main-build 
-a9-linaro-pre-build-step
- 
+' '
 make: Nothing to be done for `main-build'.

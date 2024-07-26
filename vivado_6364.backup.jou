@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Jul 26 10:25:45 2024
+# Process ID: 6364
+# Current directory: D:/FPGA/z7010_uart
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5436 D:\FPGA\z7010_uart\z7010_uart.xpr
+# Log file: D:/FPGA/z7010_uart/vivado.log
+# Journal file: D:/FPGA/z7010_uart\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/FPGA/z7010_uart/z7010_uart.xpr
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/FPGA/z7010_uart/z7010_uart.sdk -hwspec D:/FPGA/z7010_uart/z7010_uart.sdk/system_wrapper.hdf
